@@ -75,7 +75,7 @@ To get it running, follow the steps below:
 - Database setup
 
   ```sh
-  docker run --name the-bank-mysql -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql
+  docker run --name the-bank-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=the_bank -d -p 3306:3306 mysql
   ```
 
   > You can also get one from https://planetscale.com/
