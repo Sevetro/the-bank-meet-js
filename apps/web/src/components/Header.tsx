@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 
 import { ModeToggle } from "~/components/ModeToggle";
 
@@ -13,7 +14,7 @@ export default function Header() {
         </Link>
 
         <div className="ml-auto flex items-center space-x-4">
-          {`<UserButton />`}
+          <UserButton afterSignOutUrl="/" />
           <ModeToggle />
         </div>
       </div>
