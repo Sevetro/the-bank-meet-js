@@ -12,56 +12,12 @@ import {
   TableHeader,
   TableRow,
 } from "~/components/ui/table";
+import { serverApiClient } from "~/lib/serverAPIClient";
 
-export default function TransactionsTab() {
-  const dummyTransactions = [
-    {
-      transaction: {
-        id: 1,
-        uuid: "kgi3g9lafj3",
-        title: "Transaction 1",
-        value: 100,
-        createdAt: "2021-01-01",
-      },
-      sender: {
-        id: 1,
-        clerkId: "clerk-1",
-        firstName: "John",
-        lastName: "Doe",
-        createdAt: "2021-01-01",
-      },
-      recipient: {
-        id: 2,
-        clerkId: "clerk-2",
-        firstName: "Jane",
-        lastName: "Doe",
-        createdAt: "2021-01-01",
-      },
-    },
-    {
-      transaction: {
-        id: 2,
-        uuid: "lapfj3kgi39",
-        title: "Transaction 2",
-        value: 200,
-        createdAt: "2021-01-01",
-      },
-      sender: {
-        id: 3,
-        clerkId: "clerk-3",
-        firstName: "John",
-        lastName: "Smith",
-        createdAt: "2021-01-01",
-      },
-      recipient: {
-        id: 4,
-        clerkId: "clerk-4",
-        firstName: "Jane",
-        lastName: "Smith",
-        createdAt: "2021-01-01",
-      },
-    },
-  ];
+export default async function TransactionsTab() {
+  const dummyTransactions = await serverApiClient().admin.recentTransactions({
+    limit: 10,
+  });
 
   return (
     <Card className="col-span-4">
